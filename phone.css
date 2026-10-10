@@ -1,0 +1,56 @@
+/* Phone app layout. Tokens and components come from app.css and dashboard.css. */
+body.phone { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
+.phone .topbar {
+  position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center;
+  padding: calc(10px + env(safe-area-inset-top)) 16px 10px; background: var(--header); color: var(--ink);
+  border-bottom: 1px solid var(--rule); box-shadow: 0 2px 3px rgba(0, 0, 0, .06);
+}
+.phone .wordmark { padding: 0; font-size: 1.125rem; font-weight: 700; }
+.phone .fresh { font-size: var(--step--1); color: var(--ink-soft); }
+.phone .fresh.stale { color: var(--warn); }
+.phone main { padding: 12px 8px 32px; max-width: 720px; margin: 0 auto; }
+.phone h1 { font-size: 1.375rem; margin-bottom: 8px; }
+.phone .month-nav h1 { margin: 0; font-size: 1.5rem; }
+.tabs {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; display: grid; grid-template-columns: repeat(4, 1fr);
+  background: var(--sheet); border-top: 1px solid var(--rule); padding-bottom: env(safe-area-inset-bottom);
+}
+.tabs a { text-align: center; padding: 14px 4px 12px; font-size: 0.8125rem; font-weight: 600; color: var(--ink-soft); text-decoration: none; }
+.tabs a[aria-current] { color: var(--brand); box-shadow: inset 0 3px 0 var(--brand); }
+.wide { width: 100%; padding: 14px; font-size: var(--step-0); }
+.card-form { display: grid; gap: 14px; margin-top: 20px; }
+.code-input { font: 600 1.125rem ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: .04em; padding: 12px; }
+.note { font-size: var(--step--1); color: var(--ink-soft); border-left: 3px solid var(--rule-strong); padding-left: 10px; }
+.phone input[type="search"] { width: 100%; margin: 4px 0 8px; padding: 11px 12px; }
+.tx-list { list-style: none; margin: 8px 0 16px; padding: 0; background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); box-shadow: var(--shadow); }
+.tx-list li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 14px; border-bottom: 1px solid var(--rule); }
+.tx-list li:last-child { border-bottom: 0; }
+.tx-main { display: grid; gap: 2px; min-width: 0; }
+.tx-m { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tx-sub { font-size: var(--step--1); color: var(--ink-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tx-a { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+.tx-a.in { color: var(--credit); }
+.set-list { padding: 16px; display: grid; gap: 12px; }
+.set-list p { margin: 0; }
+.danger-outline { color: var(--red); border-color: var(--red); background: transparent; }
+.phone .totals { max-width: none; }
+.phone #toast { bottom: calc(80px + env(safe-area-inset-bottom)); }
+
+.scan-btn {
+  display: flex; align-items: center; gap: 14px; width: 100%; text-align: left;
+  padding: 18px 16px; border-radius: var(--radius); border: 1px dashed var(--rule-strong);
+  background: var(--sheet); color: var(--ink); font: inherit;
+}
+.scan-btn strong { display: block; font-size: var(--step-1); }
+.scan-sub { display: block; font-size: var(--step--1); color: var(--ink-soft); font-weight: 400; margin-top: 2px; }
+.scan-btn:disabled { opacity: .7; }
+.scan-icon {
+  flex: none; width: 44px; height: 44px; border-radius: 10px; background: var(--accent);
+  position: relative;
+}
+.scan-icon::before, .scan-icon::after {
+  content: ""; position: absolute; inset: 10px; border: 3px solid #fff; border-radius: 4px;
+}
+.scan-icon::after { inset: 19px; border: 0; background: #fff; border-radius: 2px; }
+.manual { display: grid; gap: 12px; }
+.card-form .link { justify-self: start; }
